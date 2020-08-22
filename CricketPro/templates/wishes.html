@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+  {% block head%}
+      <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 40%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+    {% endblock%}
+{% block content%}
+<center>
+<h2> Team Name with list of players</h2>
+<table>
+    {{ wishes }}
+    <tr>
+
+        <th>Player Names</th>
+        <th>Team Name</th>
+        <th>Player Jersy Number</th>
+
+    </tr>
+
+
+
+    {% for list in players %}
+        <tr>
+            <td>{{  list.first_name}}</td>
+            <td>{{  list.team.name}}</td>
+            <td>{{ list.player_jersy_number }}</td>
+        </tr>
+    {% endfor %}
+
+
+</table>
+</center>
+{% endblock%}
